@@ -1,0 +1,72 @@
+[color]
+  ui = auto
+[color "diff"]
+  commit = green
+  meta = yellow
+  frag = cyan
+  old = red
+  new = green
+  whitespace = red reverse
+[color "diff-highlight"]
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
+[alias]
+  ci = commit
+  cv = commit -v
+  co = checkout
+  st = status
+  ch = cherry -v origin
+  br = branch
+  aa = add --all --verbose .
+  addall = add -A .
+  hist = log --graph --abbrev-commit --pretty=format:'%C(red)%h%C(reset) - %s %C(green)(%cr) %C(blue)<%an>%C(magenta)%d%C(reset)'
+  oneline = log --pretty=format:\"%h %ad%x20%s%x20%x28%an%x29\" --date=short
+  current = log --pretty=format:'%ad %h %d' --abbrev-commit --date=short -1
+  cur = log --pretty=format:'%ad %h %d' --abbrev-commit --date=short -1
+  ls = ls-files
+  pr = pull --rebase
+  p = pull
+
+  # show difference between the HEAD and the index
+  staged = diff --cached
+  dc = diff --cached
+  ds = diff --staged
+
+  # show difference between working tree and the index
+  unstaged = diff
+
+  pile = stash --include-untracked
+
+  # git-duet aliases (must have https://github.com/git-duet/git-duet installed)
+  dci = duet-commit
+
+  branches = branch -a
+  unstage = reset -q HEAD --
+  remotes = remote -v
+  amend = commit --amend --no-edit
+  please = push.please
+  blank = !git reset --hard HEAD && git clean -d -f
+  graph = log --graph -9 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order
+
+  precommit = diff --cached --diff-algorithm=minimal -w
+
+[alias "push"]
+  please = push --force-with-lease
+[push]
+  default = current
+[core]
+  autocrlf = input
+  excludesfile = ~/.gitignore_global
+  pager = diff-highlight | less
+	editor = nvim
+	commitGraph = true
+
+[init]
+  templateDir = ~/.config/git/template/
+[include]
+  path = ~/.gitconfig.local
+[user]
+	name = Noah Peneycad
+	email = noahpeneycad@hotmail.com
