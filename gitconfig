@@ -7,11 +7,6 @@
   old = red
   new = green
   whitespace = red reverse
-[color "diff-highlight"]
-  oldNormal = red bold
-  oldHighlight = red bold 52
-  newNormal = green bold
-  newHighlight = green bold 22
 [alias]
   ci = commit
   cv = commit -v
@@ -39,9 +34,6 @@
 
   pile = stash --include-untracked
 
-  # git-duet aliases (must have https://github.com/git-duet/git-duet installed)
-  dci = duet-commit
-
   branches = branch -a
   unstage = reset -q HEAD --
   remotes = remote -v
@@ -59,10 +51,6 @@
 [core]
   autocrlf = input
   excludesfile = ~/.gitignore_global
-  pager = diff-highlight | less
-	editor = nvim
-	commitGraph = true
-
 [init]
   templateDir = ~/.config/git/template/
 [include]
